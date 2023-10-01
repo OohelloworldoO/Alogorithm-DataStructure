@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// 存放兩個分支的記憶體位置及該節點的數值
 typedef struct node
 {
     int value;
@@ -36,8 +37,6 @@ void printTreeRecursive(node *root, int level)
 
     printTabs(level);
     printf("value = %d\n", root->value);
-
-    // recursive to print the branch of tree
 
     printTabs(level);
     printf("left\n");
