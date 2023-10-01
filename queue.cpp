@@ -42,7 +42,7 @@ int main()
     enqueue(b);
     enqueue(c);
 
-    int t;
+    int t; // denote value
     while ((t = dequeue()) != QUEUE_EMPTY)
     {
         printf("queue= %d\n", t);
