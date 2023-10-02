@@ -1,3 +1,8 @@
+//      印出結果:
+//         a
+//        b  c
+//      d  d  f
+
 #include <stdio.h>
 #include <stdlib.h>
 
