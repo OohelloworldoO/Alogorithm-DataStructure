@@ -31,7 +31,7 @@ void printTreeRecursive(node *root, int level)
     if (root == NULL)
     {
         printTabs(level);
-        printf("---<empty>---\n");
+        printf("---<no numbers>---\n");
         return;
     }
 
