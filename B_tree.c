@@ -2,9 +2,9 @@
 //          a
 //       b    c
 //     d  e  f  g
-// 前敘(preorder): 中->左->右 a->b->d->e->c->f->g
-// 中敘(inorder):  左->中->右 d->b->e->a->f->c->g 由小到大依序遍歷
-// 後敘(postorder):左->右->中 d->e->b->f->g->c->a
+// 前敘(preorder): 中->左->右  a->b->d->e->c->f->g
+// 中敘(inorder):  左->中->右  d->b->e->a->f->c->g 由小到大依序遍歷
+// 後敘(postorder):左->右->中  d->e->b->f->g->c->a
 #include <stdio.h>
 #include <stdlib.h>
 

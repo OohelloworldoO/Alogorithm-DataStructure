@@ -17,6 +17,8 @@ ps->member_a = 1;
 
 
 
+
+
 // 定義一個群組
 class Myclass
 {
@@ -26,3 +28,10 @@ public:
 };
 
 // 當宣告為一般型態時 Myclass CA 就使用點(.)來存取Class中的成員
+Myclass CA;
+CA.add(0);  //左邊為class變數，跟js用法一樣
+
+//當宣告為指標型態時 Myclass *CA 就使用Arrow(->)來存取Class中的成員
+Myclass *pCA;
+pCA->add(0);
+
