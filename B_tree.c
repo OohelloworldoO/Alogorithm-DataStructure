@@ -5,6 +5,7 @@
 // 前敘(preorder): 中->左->右  a->b->d->e->c->f->g
 // 中敘(inorder):  左->中->右  d->b->e->a->f->c->g 由小到大依序遍歷
 // 後敘(postorder):左->右->中  d->e->b->f->g->c->a
+// 限定輸入5 6 7 8 9
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -26,6 +27,8 @@ node *createNode(int value)
     return newnode;
 }
 
+// 由左到右 由根部往葉子(preorder) 先拜訪父節點再拜訪左右節點的方法將樹印出，並且每往下一個層級多印一個tab鍵
+// 傳level給printTabs函式判斷
 void printTabs(int numtabs)
 {
     for (int i = 0; i < numtabs; i++)
@@ -57,7 +60,7 @@ void printTreeRecursive(node *root, int level)
     printTabs(level);
     printf("Done\n");
 }
-
+// printTree( printTreeRecursive( printTabs() ) )
 void printTree(node *root)
 {
     printTreeRecursive(root, 0);
@@ -65,12 +68,14 @@ void printTree(node *root)
 
 int main()
 {
-
-    node *node1 = createNode(5);
-    node *node2 = createNode(6);
-    node *node3 = createNode(7);
-    node *node4 = createNode(8);
-    node *node5 = createNode(9);
+    int a, b, c, d, e;
+    printf("pls enter 5 6 7 8 9:\n");
+    scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
+    node *node1 = createNode(a);
+    node *node2 = createNode(b);
+    node *node3 = createNode(c);
+    node *node4 = createNode(d);
+    node *node5 = createNode(e);
 
     node1->left = node2;
     node1->right = node3;
