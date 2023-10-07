@@ -1,8 +1,10 @@
 //      印出結果:
-//         a
-//        b  c
-//      d  d  f
-
+//          a
+//       b    c
+//     d  e  f  g
+// 前敘(preorder): 中->左->右 a->b->d->e->c->f->g
+// 中敘(inorder):  左->中->右 d->b->e->a->f->c->g 由小到大依序遍歷
+// 後敘(postorder):左->右->中 d->e->b->f->g->c->a
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,9 +16,10 @@ typedef struct node
     struct node *right;
 } node;
 
+// 新增節點
 node *createNode(int value)
 {
-    node *newnode = malloc(sizeof(node));
+    node *newnode = malloc(sizeof(node)); // malloc配置記憶體大小 sizeof()->取得變數位元組大小 or 取得陣列大小
     newnode->value = value;
     newnode->left = NULL;
     newnode->right = NULL;
