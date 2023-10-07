@@ -1,0 +1,28 @@
+此為筆記 非可執行code
+
+// 定義一個結構
+struct MyStruct
+{
+    int member_a;
+};
+
+
+// 如果有變數 Mystruct s，對其中的取用為:
+MyStruct s;
+s.member_a = 1;
+
+// 如果採用指標方式存取 Mystruct *ps 相對的存取方式必須使用Arrow
+MyStruct *ps;
+ps->member_a = 1;
+
+
+
+// 定義一個群組
+class Myclass
+{
+public:
+    int ca_var;
+    int add(int a);
+};
+
+// 當宣告為一般型態時 Myclass CA 就使用點(.)來存取Class中的成員
