@@ -1,0 +1,24 @@
+多級指針(pointers to pointers)
+
+// 在p這個指標變量 只能存放int類型的變量地址
+int i = 10;
+int *p = &i;
+
+// 所以下面這個指標p 只能存放int*的變量地址 以此類推
+int **p = &i;
+
+
+#include<stdio.h>
+int main()
+{
+    int i=10;
+    int *p=&i;
+    int **q=&p;
+    int ***r=&q;
+    printf("i=%d\n",***r);
+    return 0;
+}
+
+
+輸出結果為:
+i=10

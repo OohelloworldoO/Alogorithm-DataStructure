@@ -60,7 +60,7 @@ void printTreeRecursive(node *root, int level)
     printTabs(level);
     printf("Done\n");
 }
-// printTree( printTreeRecursive( printTabs() ) )
+// 是這種recursive-> printTree( printTreeRecursive( printTabs() ) )
 void printTree(node *root)
 {
     printTreeRecursive(root, 0);
