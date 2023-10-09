@@ -12,12 +12,10 @@ struct student *emp = NULL;
 
 int main()
 {
-    // Assigning memory to struct variable emp
+
     emp = (struct student *)
         malloc(sizeof(struct student));
 
-    // Assigning value to age variable
-    // of emp using arrow operator
     emp->age = 19;
 
     printf("%d", emp->age);
