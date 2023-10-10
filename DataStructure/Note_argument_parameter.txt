@@ -1,21 +1,17 @@
-Argument(引數)用於呼叫函式
-Parameter(參數)方法的宣告
+Argument(引數) 呼叫函式時的實際數值
+Parameter(參數)函式定義時的數值
 
 *
 An argument is an expression used when calling the method
 A parameter is the variable which is part of the method's signature(method declaration)
 
 
-void Foo(int i, float f)
-{
-    // do things
+void addone(int n) {
+    n++;
 }
 
-void Bar()
-{
-    int num = 1;
-    Foo(anInt, 2.0)
-}
+int x=5;
+printf("Before: %d\n", x);
+addone(x);
 
-num、2.0皆為argument(Argument of a Function)
-i、f為parameter
+x為引數,n則為參數
