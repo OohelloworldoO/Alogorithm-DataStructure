@@ -18,14 +18,8 @@ node *createNode(int value)
     return newnode;
 }
 
-/*
-if the root of the tree is point to NULL, then we need to change the value of the root
-therefore, we pass the double pointer to change the value of root
-*/
-/*
-如果root是指向NULL 那我們就將變數存到root
+// 如果root是指向NULL 那我們就將變數存到root
 
-*/
 bool insertNumber(node **rootptr, int value)
 {
     node *root = (*rootptr);
