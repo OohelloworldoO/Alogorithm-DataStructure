@@ -12,13 +12,16 @@ typedef struct node
 node *createNode(int value)
 {
     node *newnode = malloc(sizeof(node));
-    newnode->value = value;
+    newnode->value = value; // 將變數存到struct node的value
     newnode->left = NULL;
     newnode->right = NULL;
     return newnode;
 }
 
-// 如果root是指向NULL 那我們就將變數存到root
+/*
+如果root是指向NULL 那我們就將變數存到root 並比較value、root大小
+再呼叫一次bool function
+*/
 
 bool insertNumber(node **rootptr, int value)
 {
@@ -26,19 +29,15 @@ bool insertNumber(node **rootptr, int value)
 
     if (root == NULL)
     {
-        // the reason why we pass double pointer in the argument
         (*rootptr) = createNode(value);
         return true;
     }
 
-    // if the element had been in the tree
     if (root->value == value)
     {
-        // do nothing
         return false;
     }
 
-    // recursive to insert the number into tree
     else
     {
         if (value < root->value)
@@ -52,8 +51,10 @@ bool findNumber(node *root, int value)
 {
     if (root == NULL)
         return false;
+
     if (root->value == value)
         return true;
+
     else
     {
         if (value < root->value)
