@@ -1,12 +1,9 @@
-#include <iostream>
-#include <string>
+#include <stdio.h>
 
 int main()
 {
-
     int x, y;
-
-    scanf("%d %d", &x, &y);
+    scanf("%d %d", x, y);
 
     int position_x, position_y;
     char direction;
@@ -23,49 +20,51 @@ int main()
         {
             switch (insert[i])
             {
+
             case 'L':
                 if (direction == 'N')
                 {
-                    direction = 'W';
+                    direction == 'W';
                     break;
                 }
                 if (direction == 'W')
                 {
-                    direction = 'S';
+                    direction == 'S';
                     break;
                 }
                 if (direction == 'S')
                 {
-                    direction = 'E';
+                    direction == 'E';
                     break;
                 }
                 if (direction == 'E')
                 {
-                    direction = 'N';
+                    direction == 'N';
                     break;
                 }
 
             case 'R':
                 if (direction == 'N')
                 {
-                    direction = 'E';
+                    direction == 'E';
                     break;
                 }
                 if (direction == 'E')
                 {
-                    direction = 'S';
+                    direction == 'S';
                     break;
                 }
                 if (direction == 'S')
                 {
-                    direction = 'W';
+                    direction == 'W';
                     break;
                 }
                 if (direction == 'W')
                 {
-                    direction = 'N';
+                    direction == 'N';
                     break;
                 }
+
             case 'F':
                 if (scent[position_x][position_y] == 1)
                 {
@@ -76,14 +75,14 @@ int main()
                     position_y += 1;
                     break;
                 }
-                if (direction == 'E')
-                {
-                    position_x += 1;
-                    break;
-                }
                 if (direction == 'S')
                 {
                     position_y -= 1;
+                    break;
+                }
+                if (direction == 'E')
+                {
+                    position_x += 1;
                     break;
                 }
                 if (direction == 'W')
@@ -95,7 +94,6 @@ int main()
 
             if (check == 1)
             {
-
                 if (position_x > x)
                 {
                     position_x -= 1;
@@ -104,20 +102,19 @@ int main()
                 {
                     position_y -= 1;
                 }
-                if (position_x < 0)
+                if (position_x < x)
                 {
                     position_x += 1;
                 }
-                if (position_y < 0)
+                if (position_y < y)
                 {
                     position_y += 1;
                 }
             }
 
+            // 判斷是否lost
             if (position_x > x || position_y > y || position_x < 0 || position_y < 0)
             {
-
-                lost = 1;
                 if (position_x > x)
                 {
                     position_x -= 1;
@@ -137,14 +134,14 @@ int main()
                 scent[position_x][position_y] = 1;
                 break;
             }
-        }
-        if (lost == 1)
-        {
-            printf("%d %d %c LOST\n", position_x, position_y, direction);
-        }
-        else
-        {
-            printf("%d %d %c\n", position_x, position_y, direction);
+            if (lost == 1)
+            {
+                printf("%d %d %c LOST\n", position_x, position_y, direction);
+            }
+            else
+            {
+                printf("%d %d %c\n", position_x, position_y, direction);
+            }
         }
     }
 }
