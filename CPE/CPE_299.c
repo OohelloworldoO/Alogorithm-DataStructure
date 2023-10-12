@@ -2,12 +2,13 @@
 
 int main()
 {
-    int numbers;    // 測資數量
-    int count;      // 火車共有幾節車廂
-    int length[50]; // 將火車車廂當前的順序存到matrix
-    scanf("%d", &numbers);
+    int times;      /*測資數量*/
+    int numbers;    /*火車共有幾節車廂*/
+    int length[50]; /* 將火車車廂當前的順序存到matrix*/
+    int count;      // swaps次數
+    scanf("%d", &times);
 
-    while (numbers--) // 當while裡面為 0 -> false 會直接跳出迴圈
+    while (times--) // 當while裡面為 0 -> false 會直接跳出迴圈
     {
         count = 0;
         scanf("%d", &numbers);
@@ -30,7 +31,5 @@ int main()
             }
         }
         printf("Optimal train swapping takes %d swaps.\n", count);
-
-        break;
     }
 }
