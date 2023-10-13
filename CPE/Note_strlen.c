@@ -13,3 +13,4 @@ int main()
 
     return (0);
 }
+// strlen就是取得字數(含空格)
