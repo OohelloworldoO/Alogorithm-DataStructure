@@ -12,7 +12,7 @@ int main()
     c = getchar();
 
     printf("Character entered: ");
-    putchar(c);
+    putchar(c); // 只能輸出一個字
 
     return (0);
 }

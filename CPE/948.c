@@ -21,7 +21,7 @@ int main()
         {
             if (InputNums / Fib[a] == 1)
             {
-                print("1");
+                printf("1");
                 InputNums %= Fib[a], count = 1;
             }
             else if (count)
