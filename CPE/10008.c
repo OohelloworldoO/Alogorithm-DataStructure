@@ -23,4 +23,7 @@ main()
     }
 
     for (indx = max_count; max_count > 0; max_count--)
+    {
+        // for()
+    }
 }
