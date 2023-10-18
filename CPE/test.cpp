@@ -1,7 +1,7 @@
 #include <iostream>
 int main()
 {
-    for (int i = 0; i < 3; i++)
-        printf("hello\n");
-    printf("dick\n");
+    int a = 3, b = 4, c;
+    c -= 3 - 4;
+    printf("%d\n", c);
 }
