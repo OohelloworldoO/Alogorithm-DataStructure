@@ -4,7 +4,6 @@ unordered_map對應hash table=>特點是搜尋效率高
 */
 
 // unordered_map initial write:
-#include <unordered_map>
 
 std::unordered_map<std::string, int> umap =
     {
@@ -14,7 +13,7 @@ std::unordered_map<std::string, int> umap =
 
 // unordered_map 容器裡插入元素與存取元素 方法1.
 std::unordered_map<std::string, int> umap;
-umap["John"] = 3;
+// umap["John"] = 3;
 
 // 方法2. 使用 umap.insert() 成員函式來插入元素，
 #include <iostream>
