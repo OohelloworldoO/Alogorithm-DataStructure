@@ -29,7 +29,7 @@ int main()
     cout << " -- -- -- -- -- -- -- --" << endl;
     cout << "The max row of matrix is 30" << endl;
     cout << "Plz input the number of row u want to check" << endl;
-    scanf("%d", &in_Put);
+    cin >> in_Put;
     for (int j = 0; j <= in_Put - 1; j++)
     {
         cout << matrix[in_Put - 1][j] << " ";

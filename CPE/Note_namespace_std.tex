@@ -1,0 +1,20 @@
+
+iostream是基本的引入檔 I/O
+std=> cin、cout
+
+using namespace 是命名空間，為了解決重名的 value / funciton 用於定義一個新的作用域:
+
+namespace one
+{
+    char func(char);
+    class String{.....};
+}
+
+namespace SomeLib
+{
+    class String{.....};
+}
+使用兩個一樣的string也不會發生衝突，因為分別為
+one::String()
+SomLib::String()
+
