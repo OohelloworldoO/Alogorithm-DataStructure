@@ -1,13 +1,31 @@
+/*
+calculate of pi(Leibniz series)
+4- 4/3 + 4/5 - 4/7 + 4/9...
+分數相隔1會變號
+*/
+
 #include <iostream>
-#include <iomanip>
+#include<cmath>
 using namespace std;
 int main()
 {
-    double pi, terme;
-    for (int i = 1; i < 4; i += 2)
+    double pi=4;
+    int term,piyan,g8=0;
+    for(int i=0;i<10000;i++)
     {
-        terme = 4 / i - 4 / (i + 2) + 4 / (i + 2);
-        pi = terme;
+        piyan=term*2+3;
+        if(term%2==00)pi-=4.0/piyan;
+        else pi+=4.0/piyan;
+
+        if(g8<1 && trunc(100*pi)==314)
+        {
+            cout<<"found 3.14 at iteration"<<i<<endl;
+            g8++;
+        }
+                if(g8<2 && trunc(100*pi)==314)
+        {
+            cout<<"found 3.14 at iteration"<<i<<endl;
+            
+        }
     }
-    cout << setprecision(30) << pi << endl;
 }

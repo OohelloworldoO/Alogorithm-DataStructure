@@ -1,0 +1,9 @@
+此函數在cmath中
+double floor(double x);
+向下取整
+
+double ceil(double x);
+向上取整
+
+double trunc(double x);
+取整
