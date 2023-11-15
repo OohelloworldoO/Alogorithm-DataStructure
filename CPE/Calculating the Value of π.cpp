@@ -5,27 +5,40 @@ calculate of pi(Leibniz series)
 */
 
 #include <iostream>
-#include<cmath>
+#include <cmath>
 using namespace std;
 int main()
 {
-    double pi=4;
-    int term,piyan,g8=0;
-    for(int i=0;i<10000;i++)
-    {
-        piyan=term*2+3;
-        if(term%2==00)pi-=4.0/piyan;
-        else pi+=4.0/piyan;
+    double pi = 4;
+    int son, flag = 0;
 
-        if(g8<1 && trunc(100*pi)==314)
+    for (int i = 0; i < 1000000; i++)
+    {
+        son = i * 2 + 3;
+        if (i % 2 == 00)
+            pi -= 4.0 / son;
+        else
+            pi += 4.0 / son;
+
+        if (flag < 1 && trunc(100 * pi) == 314)
         {
-            cout<<"found 3.14 at iteration"<<i<<endl;
-            g8++;
+            cout << "found 3.14 at iteration " << i << endl;
+            flag++;
         }
-                if(g8<2 && trunc(100*pi)==314)
+        if (flag < 2 && trunc(1000 * pi) == 3141)
         {
-            cout<<"found 3.14 at iteration"<<i<<endl;
-            
+            cout << "found 3.141 at iteration " << i << endl;
+            flag++;
+        }
+        if (flag < 3 && trunc(10000 * pi) == 31415)
+        {
+            cout << "found 3.1415 at iteration " << i << endl;
+            flag++;
+        }
+        if (flag < 4 && trunc(100000 * pi) == 314159)
+        {
+            cout << "found 3.14159 at iteration " << i << endl;
+            flag++;
         }
     }
 }
