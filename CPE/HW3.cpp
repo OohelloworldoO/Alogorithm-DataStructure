@@ -20,11 +20,11 @@ int main()
     else if (a < 0)
         cout << "WARN! the input of number need follow the rules 0~100" << endl;
     else
-        cout << "correct" << endl
-             << "if u want to play again then press y" << endl;
+        cout << "correct" << endl;
+    cout << "if u want to play again then press y" << endl;
     cin >> c;
 
-    while (c == "y" || c == "Y")
+    while (c == "y" || c == "Y" || c == "yes" || c == "Yes" || c == "YES")
     {
         srand(time(NULL));
         b = rand() % 101;
@@ -48,7 +48,6 @@ int main()
         }
         cout << "correct" << endl
              << "if u want to play again then press y" << endl;
-
         cin >> c;
     }
 }
