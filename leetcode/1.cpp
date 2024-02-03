@@ -1,50 +1,71 @@
 /*
-想法記錄
-題目意思是輸入兩個數字決定範圍
-a~b每個數字都跑一次func
-print出最高次數的cycle path
+00100 - The 3n + 1 problem
+
+思路:
+two numbers determine the range of func
+print the highest cycle path counts
 
 input 1、10
-output 1 10 20(數字9的cycle path=20)
+output 1 10 20(9's cycle path=20)
 
 */
 
 #include <iostream>
 using namespace std;
 
-int main() // temp 紀錄上一個 temp2紀錄當前cycle path count
+int main() // temp2 record current cycle path counts
 {
-    int a, b, temp = 0, temp2 = 0, flag = 0, flag2;
-    cin >> a >> b;
-    if (1000000 > a > 0 && 1000000 > b > 0)
+    int a, b, temp = 0, temp2 = 0, flag = 0, flag2 = 0;
+    while (cin >> a >> b)
     {
-        cout << a << " " << b << " ";
-        if (a > b)
+        flag2 = a;
+        if (1000000 > a > 0 && 1000000 > b > 0)
         {
-            flag2 = a;
-            a = b;
-            b = flag2;
-        }
-        while (a < b) // a~b
-        {
-            flag = a;
-            while (flag > 1)
+            cout << a << " " << b << " ";
+            if (a > b) // a b exchange
             {
-
-                if (flag % 2 != 0)
-                    flag = 3 * flag + 1;
-                else
-                    flag = flag / 2;
-
-                temp2 += 1;
+                flag2 = b;
+                b = a;
+                a = flag2;
             }
 
-            if (temp2 < temp)
-                temp2 = temp;
-            temp = temp2;
-            temp2 = 0;
-            a += 1;
+            while (flag2 < b) // a~b
+            {
+                flag = flag2;
+                while (flag > 1)
+                {
+
+                    if (flag % 2 != 0)
+                        flag = 3 * flag + 1;
+                    else
+                        flag = flag / 2;
+
+                    temp2 += 1;
+                }
+
+                if (temp2 < temp)
+                    temp2 = temp;
+                temp = temp2;
+                temp2 = 0;
+                flag2 += 1;
+            }
+
+            if (a == b)
+            {
+                flag = a;
+                while (flag > 1)
+                {
+
+                    if (flag % 2 != 0)
+                        flag = 3 * flag + 1;
+                    else
+                        flag = flag / 2;
+                    temp2 += 1;
+                }
+                temp = temp2;
+                temp2 = 0;
+            }
+            cout << temp + 1 << " " << endl;
         }
-        cout << temp + 1 << " ";
     }
 }
