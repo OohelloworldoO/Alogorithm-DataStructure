@@ -66,6 +66,7 @@ int main() // temp2 record current cycle path counts
                 temp2 = 0;
             }
             cout << temp + 1 << " " << endl;
+            temp = 0;
         }
     }
 }
