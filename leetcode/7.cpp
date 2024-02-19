@@ -2,9 +2,8 @@
 using namespace std;
 int main()
 {
-    int n, len = 0, count[100] = {0};
+    int n, count[100] = {0}, len = 0;
     cin >> n;
-    char c;
     cin.ignore();
     while (n--)
     {
@@ -19,13 +18,13 @@ int main()
             }
         }
     }
-    for (int j = len; j >= 1; j--)
+    for (int i = len; i >= 1; i--)
     {
-        for (char i = 'A'; i <= 'Z'; i++)
+        for (char j = 'A'; j <= 'Z'; j++)
         {
-            if (count[i] == j)
+            if (count[j] == i)
             {
-                cout << i << " " << count[i] << endl;
+                cout << j << " " << count[j] << endl;
             }
         }
     }
