@@ -13,6 +13,7 @@
     "chrono": "cpp",
     "valarray": "cpp",
     "string_view": "cpp",
-    "regex": "cpp"
+    "regex": "cpp",
+    "bitset": "cpp"
   }
 }
