@@ -2,13 +2,30 @@
 using namespace std;
 string toBinary(int N)
 {
-    string r = 0;
+    string r;
     while (N != 0)
     {
         r += (N % 2 == 0 ? "0" : "1");
         N /= 2;
     }
     return r;
+}
+
+string toHexadecimal(int N)
+{
+    string r;
+    return r;
+}
+
+int catch_num(string r)
+{
+    int N = 0;
+    for (char nums : r)
+    {
+        if (nums == 1)
+            N++;
+    }
+    return N;
 }
 
 int main()
@@ -18,8 +35,8 @@ int main()
     while (n--)
     {
         cin >> N;
-        bitset<6> First(toBinary(N));
+        bitset<16> First(toBinary(N));
         cout << First;
+        cout << catch_num(toBinary(N));
     }
-    return EXIT_SUCCESS;
 }
