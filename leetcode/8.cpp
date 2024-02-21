@@ -11,11 +11,12 @@ string toBinary(int N)
     return r;
 }
 
-string toHexadecimal(int N)
+string toHexadecimal(int N) // 把int轉成string, bit轉換成20位數的16進位 type再轉成stringreturn
 {
     string Binary = to_string(N);
-    string R;
     bitset<20> bit(stoi(Binary, nullptr, 16));
+    string bIt = bit.to_string();
+    return bIt;
 }
 
 int catch_num(string r)
