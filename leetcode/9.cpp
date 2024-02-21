@@ -6,10 +6,9 @@
 using namespace std;
 int main()
 {
-    int a, b, temp = 0, A, B;
+    int a, b, A, B;
     while (cin >> a >> b)
     {
-        cin.ignore();
         int count = 0, c = 0;
         if (a == 0 && b == 0)
             break;
@@ -20,17 +19,18 @@ int main()
             a /= 10;
             B = b % 10;
             b /= 10;
-            temp = A + B + c;
-            if (temp >= 10)
+            if (A + B + c >= 10)
             {
                 count++;
-                c += 1;
+                c = 1;
             }
             else
                 c = 0;
         }
-        if (count > 0)
+        if (count > 1)
             cout << count << " carry operations." << endl;
+        else if (count == 1)
+            cout << "1 carry operation." << endl;
         else
             cout << "No carry operation." << endl;
     }
