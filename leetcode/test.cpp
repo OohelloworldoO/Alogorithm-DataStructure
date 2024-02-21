@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-string toBinary(int N)
+string toBinary(string N)
 {
     string r;
     while (N != 0)
@@ -13,9 +13,13 @@ string toBinary(int N)
 
 string toHexadecimal(int N)
 {
-    string Binary = to_string(N);
-    string R;
-    bitset<20> bit(stoi(Binary, nullptr, 16));
+    string r;
+    while (N > 1)
+    {
+        r += N % 10;
+        N /= 10;
+    }
+    return r;
 }
 
 int catch_num(string r)
@@ -32,7 +36,8 @@ int catch_num(string r)
 
 int main()
 {
-    int n, N;
+    int n;
+    string N;
     cin >> n;
     while (n--)
     {
@@ -40,5 +45,7 @@ int main()
         // bitset<16> First(toBinary(N));
         // cout << First << endl;
         cout << catch_num(toBinary(N)) << " " << catch_num(toHexadecimal(N)) << endl;
+        cout << catch_num(toHexadecimal(N)) << endl;
+        cout << toHexadecimal(N);
     }
 }
