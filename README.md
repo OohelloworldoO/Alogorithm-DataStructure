@@ -1,6 +1,9 @@
 # Alogorithm/DataStructure
 
-c/cpp復健
+## Datastructure + Algorithm = Program
 
-command: gcc/g++ -o 要生成執行檔名 執行檔名
+c/cpp 復健
 
+<pre>
+gcc/g++ -o 要生成執行檔名 執行檔名
+</code></pre>
