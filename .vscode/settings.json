@@ -17,6 +17,8 @@
     "bitset": "cpp",
     "string": "cpp",
     "algorithm": "cpp",
-    "complex": "cpp"
+    "complex": "cpp",
+    "typeindex": "c",
+    "typeinfo": "c"
   }
 }
