@@ -19,6 +19,7 @@
     "algorithm": "cpp",
     "complex": "cpp",
     "typeindex": "c",
-    "typeinfo": "c"
+    "typeinfo": "c",
+    "ratio": "c"
   }
 }
