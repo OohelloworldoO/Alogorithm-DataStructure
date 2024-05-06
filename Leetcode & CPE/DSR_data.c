@@ -12,7 +12,7 @@ struct Student* createStudent(char name[], int ch_score, int en_score, int math_
     struct Student* newStudent = (struct Student*)malloc(sizeof(struct Student));
     if (newStudent == NULL) {
         printf("Memory allocation failed\n");
-        exit(4);
+        exit(404);
     }
     strcpy(newStudent->name, name);
     newStudent->ch_score = ch_score;
@@ -23,7 +23,7 @@ struct Student* createStudent(char name[], int ch_score, int en_score, int math_
 }
 
 void insertStudentAtEnd(struct Student **head, char name[],  int ch_score, int en_score, int math_score) {
-    struct Student *newStudent = createStudent(name, ch_score, en_score, math_score); 
+    struct Student *newStudent = createStudent(name, ch_score, en_score, math_score);
 
     if (*head == NULL) {
         *head = newStudent;
@@ -93,41 +93,86 @@ void printStudentList(struct Student *head) {
     }
 }
 
+// 函數：保存學生信息到文件
+void saveStudentListToFile(struct Student *head) {
+    FILE *fp = fopen("student_scores.txt", "w"); // 打開文件以寫入模式
+
+    if (fp == NULL) { // 檢查文件是否成功打開
+        printf("Error opening file for writing.\n");
+        return;
+    }
+
+    while (head != NULL) { // 遍歷學生列表，將信息寫入文件
+        fprintf(fp, "%s %d %d %d\n", head->name, head->ch_score, head->en_score, head->math_score);
+        head = head->next;
+    }
+
+    fclose(fp); // 關閉文件
+}
+
+// 函數：從文件中讀取學生信息
+void loadStudentListFromFile(struct Student **head) {
+    FILE *fp = fopen("student_scores.txt", "r"); // 打開文件以讀取模式
+
+    if (fp == NULL) { // 檢查文件是否成功打開
+        printf("Error opening file for reading.\n");
+        return;
+    }
+
+    char name[10];
+    int ch_score, en_score, math_score;
+
+    while (fscanf(fp, "%s %d %d %d", name, &ch_score, &en_score, &math_score) != EOF) {
+        insertStudentAtEnd(head, name, ch_score, en_score, math_score); // 插入讀取到的學生信息到學生列表
+    }
+
+    fclose(fp); // 關閉文件
+}
+
 int main() {
-    struct Student *head = NULL;
+    struct Student *head = NULL; // 初始化空串列
+
+    char choice;
+
+    printf("Do you want to load existing student scores from file? (y/n): ");
+    scanf(" %c", &choice);
+
+    if (choice == 'y' || choice == 'Y') {
+        loadStudentListFromFile(&head); // 從文件中讀取學生信息
+    }
+
     int numStudents;
-    char searchName[50];
     printf("Enter the number of students: ");
     scanf("%d", &numStudents);
 
     for (int i = 0; i < numStudents; i++) {
         char name[10];
-        int ch_score,en_score,math_score;
+        int ch_score, en_score, math_score;
         printf("Enter the number %d student's name: ", i + 1);
         scanf("%s", name);
         printf("Enter the number %d student's score: ", i + 1);
         scanf("%d %d %d", &ch_score, &en_score, &math_score);
-        insertStudentAtEnd(&head, name, ch_score, en_score, math_score);
+        insertStudentAtEnd(&head, name, ch_score, en_score, math_score); // 插入學生到串列尾部
     }
 
+    // 列印學生信息列表
     printf("\nStudent Information List:\n");
     printStudentList(head);
-    printf("--------------------------------------------\n");
-    calculateSubjectTotal(head, numStudents);
-    printf("--------------------------------------------\n");
 
-    while (1) {
-        printf("Pls enter the student's name and we'll search his information (or type 'exit' to quit):\n");
-        scanf("%s", searchName);
-        if (strcmp(searchName, "exit") == 0) {
-            break;
-        }
-        searchStudent(head, searchName);
+    // 保存學生信息到文件
+    printf("\nDo you want to save student scores to file? (y/n): ");
+    scanf(" %c", &choice);
+
+    if (choice == 'y' || choice == 'Y') {
+        saveStudentListToFile(head); // 保存學生信息到文件
     }
 
+    // 釋放動態分配的內存
     freeStudentList(head);
 
     printf("\nEnter anything to exit the program...\n");
     getchar();
-    getchar();
+    getchar(); // 等待用戶按下 Enter 鍵
+
+    return 0;
 }
