@@ -76,11 +76,11 @@ void searchStudent(struct Student *head, char searchName[]) {
 }
 
 void freeStudentList(struct Student *head) {
-    struct Student *temp;
+    struct Student *before_head;
     while (head != NULL) {
-        temp = head;
+        before_head = head;
         head = head->next;
-        free(temp);
+        free(before_head);
     }
 }
 
@@ -96,7 +96,7 @@ void printStudentList(struct Student *head) {
 int main() {
     struct Student *head = NULL;
     int numStudents;
-    char searchName[50];
+    char searchName[10];
     printf("Enter the number of students: ");
     scanf("%d", &numStudents);
 
