@@ -112,7 +112,7 @@ void saveStudentListToFile(struct Student *head) {
 
 // 函數：從文件中讀取學生信息
 void loadStudentListFromFile(struct Student **head) {
-    FILE *fp = fopen("student_scores.txt", "r"); // 打開文件以讀取模式
+    FILE *fp = fopen("DSR.txt", "r"); // 打開文件以讀取模式
 
     if (fp == NULL) { // 檢查文件是否成功打開
         printf("Error opening file for reading.\n");
@@ -120,10 +120,10 @@ void loadStudentListFromFile(struct Student **head) {
     }
 
     char name[10];
-    int ch_score, en_score, math_score;
+    int OFD_B, OFD_D, OFD_C, OFD_E, OFD_F;
 
-    while (fscanf(fp, "%s %d %d %d", name, &ch_score, &en_score, &math_score) != EOF) {
-        insertStudentAtEnd(head, name, ch_score, en_score, math_score); // 插入讀取到的學生信息到學生列表
+    while (fscanf(fp, "%s %d %d %d %d %d", name, &OFD_B, &OFD_D, &OFD_C, &OFD_E, &OFD_F) != EOF) {
+        insertStudentAtEnd(head, name, OFD_B, OFD_D, OFD_C, OFD_E, OFD_F); // 插入讀取到的資料
     }
 
     fclose(fp); // 關閉文件
@@ -131,28 +131,27 @@ void loadStudentListFromFile(struct Student **head) {
 
 int main() {
     struct Student *head = NULL; // 初始化空串列
-
     char choice;
 
-    printf("Do you want to load existing student scores from file? (y/n): ");
+    printf("Do you want to load existing DSR.txt from file? (y/n): ");
     scanf(" %c", &choice);
 
     if (choice == 'y' || choice == 'Y') {
         loadStudentListFromFile(&head); // 從文件中讀取學生信息
     }
 
-    int numStudents;
-    printf("Enter the number of students: ");
-    scanf("%d", &numStudents);
+    int Data;
+    printf("Enter the topic of data: ");
+    scanf("%d", &Data);
 
-    for (int i = 0; i < numStudents; i++) {
-        char name[10];
+    for (int i = 0; i < Data; i++) {
+        char data[10];
         int ch_score, en_score, math_score;
-        printf("Enter the number %d student's name: ", i + 1);
-        scanf("%s", name);
-        printf("Enter the number %d student's score: ", i + 1);
+        printf("Enter the number %d data: ", i + 1);
+        scanf("%s", data);
+        printf("Enter the number %d data's information: ", i + 1);
         scanf("%d %d %d", &ch_score, &en_score, &math_score);
-        insertStudentAtEnd(&head, name, ch_score, en_score, math_score); // 插入學生到串列尾部
+        insertStudentAtEnd(&head, data, ch_score, en_score, math_score); // 插入學生到串列尾部
     }
 
     // 列印學生信息列表

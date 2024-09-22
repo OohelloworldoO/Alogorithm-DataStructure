@@ -42,3 +42,6 @@ struct Student* createStudent(char name[], int score) {
 我之前對於 `*next` 跟`struct Student*`有些誤解 最近才搞清楚  
 白話一點解釋就是`struct Student*`是指向`struct Student`這個結構的記憶體位置  
 `*next`是指向`struct Student`結構中下一個位置的指針
+
+`(struct Student*)malloc(sizeof(struct Student))`malloc 前面是定義 return 大小的資料型態  
+c 語言 function 前面的是定義資料的型態
